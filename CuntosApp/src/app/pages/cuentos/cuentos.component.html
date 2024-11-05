@@ -1,0 +1,33 @@
+<app-header></app-header>
+<br>
+<div class="a">
+    <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <input matInput name="filterCuento" [(ngModel)]="filterCuento">
+    </mat-form-field>
+
+    <mat-grid-list cols="3" rowHeight="250px">
+        <mat-grid-tile *ngFor="let cuento of cuentos | cfilter:filterCuento">
+            <mat-card class="cuento-card">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <img mat-card-md-image src={{cuento.imageUrl}}  alt="Image">
+                        <mat-card-title>{{cuento.title}}</mat-card-title>
+                    </mat-card-title-group>
+                </mat-card-header>
+                <br>
+                <mat-card-content>
+                    <div class="cont">
+                        <button mat-stroked-button (click)="selectCuento(cuento)">Ver cuento</button>
+                        <hr>
+                        <button mat-stroked-button color="warn" (click)="deleteCuento(cuento)">Borrar cuento</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+<br>
+
+<app-footer></app-footer>

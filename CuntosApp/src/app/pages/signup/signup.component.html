@@ -1,0 +1,38 @@
+<form [formGroup]="form" (submit)="signup()">
+    <h1>SignUp</h1>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" formControlName="name">
+        <mat-error>
+            {{ hasError('name', 'required') ? 'Este campo es requerido' : 'Necesitas minimo 3 caracteres'}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" formControlName="email">
+        <mat-error *ngIf="hasError('email', 'required')">Este campo es requerido</mat-error>
+        <mat-error *ngIf="hasError('email', 'email')">Se necesita un correo valido</mat-error>
+        <mat-error *ngIf="hasError('email', 'domain')">Este no es un dominio valido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" formControlName="password">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" name="confirm" formControlName="confirm">
+    </mat-form-field>
+    <div>
+        <mat-checkbox formControlName="terms">
+            I accept the terms and conditions
+        </mat-checkbox>
+    </div>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="form.invalid">Sign up</button>
+        <hr>
+        <hr>
+        <hr>
+        <button mat-flat-button color="primary" (click)="gotoLogin()">Regresar</button>
+    </div>
+    
+</form>

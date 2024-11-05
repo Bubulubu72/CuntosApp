@@ -1,0 +1,32 @@
+<div class="body">
+
+    <form [formGroup]="form" (submit)="login()">
+        <h1>LogIn</h1>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" formControlName="email">
+            <mat-error *ngIf="hasError('email', 'required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="hasError('email', 'email')">Se necesita un correo valido</mat-error>
+            <mat-error *ngIf="hasError('email', 'domain')">Este no es un dominio valido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" formControlName="password">
+        </mat-form-field>
+        <div>
+            <button mat-flat-button color="primary" [disabled]="form.invalid">Log in</button>
+            
+        </div>
+        <hr>
+        <hr>
+        <hr>
+    </form>
+    <div>
+        <button mat-flat-button color="primary" (click)="signup()">Sign up</button>
+    </div>
+    <div>
+        <br>
+        <a href="https://api-web-m5lb.onrender.com/auth/google" class="button" (click)="saveToken()">Sign in with Google</a>
+    </div>
+
+</div>
