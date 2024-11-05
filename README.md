@@ -1,2 +1,2 @@
 # CuntosApp
-Repositorio de la Aplicación Cuentos (2023) con su backend en Render
+Repositorio de la Aplicación CuentosApp (2023) | Desarrollada en angular, express, nodejs |
